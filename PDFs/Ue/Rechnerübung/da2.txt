@@ -1,0 +1,54 @@
+1. Vervollstaendigen Sie folgende Angaben!
+
+  Name: Neunert				    Vorname: Joshua
+  Matrikelnummer:822456       Login-Name: neunert
+
+
+-----------------------------------------------------------
+
+2. Kopieren Sie folgendes zweizeilige Textstueck, so dass
+   es insgesamt 4 mal erscheint.
+
+Dies ist die erste Zeile des zu kopierenden Textes.
+##1102200009416160519660300##
+##1102200009416160519660300##
+##1102200009416160519660300##
+##1102200009416160519660300##
+
+
+-----------------------------------------------------------
+
+3. Beantworten Sie folgende Fragen! Benutzen Sie bei Bedarf
+   die Online-Hilfe! Tragen Sie die Antworten in einer Zeile 
+   oberhalb der Linien ein, ohne diese zu ueberschreiben!
+
+  (a) Welches Kommando gibt Ihnen die Kernel-Version
+      des Systems aus?
+    
+      ______uname -v_____________________________________
+
+
+  (b) Mit Hilfe welchen Kommandos koennen Sie sich den Inhalt
+      einer Textdatei in ein Terminalfenster ausgeben lassen?
+
+      ______________cat_________________________________
+
+
+
+----------------------------------------------------------
+
+4. Editieren Sie im folgenden Text die Antworten, so dass 
+   sie inhaltlich korrigiert sind.
+
+
+   (a) Welches Kommando zeigt die aktuell eingeloggten Personen
+       an?   Antwort: finger
+
+   (b) Welches Kommando zeigt einen Ausschnitt aus der 
+       Prozesstabelle einschliesslich der PPID?
+
+	Antwort:  ps -f
+	
+
+-----------------------------------------------------------
+-----------------------------------------------------------
