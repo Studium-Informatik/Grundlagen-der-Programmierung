@@ -162,7 +162,7 @@
 
 - Ich kann mit der Diagonalisierung zeigen, dass eine Menge überabzählbar unendlich ist
 
-## 15) Unentscheidbarkeit` 
+## 15) Unentscheidbarkeit
 
 - Ich kann jeweils ein Beispiel für ein Entscheidbares und Unentscheidbares Problem nennen 
 
