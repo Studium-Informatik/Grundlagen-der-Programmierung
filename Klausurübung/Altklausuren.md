@@ -65,7 +65,7 @@ $b,a,c,d,e,f$
 $b,a,c,e,d,f$
 ## 3
 ### 1
-```run-python
+```python
 def repFirstElm(L):
 	first_elm = L[0]
 	count = 0
@@ -109,7 +109,7 @@ $(4n+5)\in O(n)$
 A
 ## 5
 ### 1
-```run-python
+```python
 kontonummer = 12345678
 kontostand = 0 # Euro
 
@@ -173,7 +173,7 @@ aktuell: 5, formal: x
 ### 1
 Rekursion, Funktionen höherer Ordnung, Keine Seiteneffekte, Bestehen nur aus Funktionsaufrufen und Definitionen
 ### 2
-```run-python
+```python
 def explist(n):
 	print("Aufruf von", n)
 	e = []
@@ -196,7 +196,7 @@ le=reduce(lambda x,y: x+len(y),[[1,1],[1],[1,1,1],[1,1]],0)
 $(((((0), 2), 1), 3), 2)\to 8$
 ### 4
 #### a)
-```run-python
+```python
 f=lambda x: x//2
 l=list(map(f, [10,12,14,17,19]))
 
@@ -204,7 +204,7 @@ print(l)
 ```
 
 #### b)
-```run-python
+```python
 f=lambda x: 5<=x<=9 
 l=list(filter(f, [1,2,3,4,5,6,7,8,9,10,11,12,13]))
 
@@ -219,7 +219,7 @@ Rechtssequenz:
 $(((((),1),8),2),12)$
 
 ### 6
-```run-python
+```python
 def rechtsAddFirst(xs, x):
 	if(xs == ()):
 		return ((), x)
@@ -234,7 +234,7 @@ x = 5
 print(rechtsAddFirst(xs,x))
 ```
 
-```run-python
+```python
 def linksAddFirst(xs, x):
 	if(xs == ()):
 		return (x, ())
@@ -291,3 +291,176 @@ Ausgabe:
 ### 3
 Eine Menge $M$ ist **abzählbar unendlich**, wenn sie gleichmächtig zur Menge $\mathbb{N}$ der natürlichen Zahlen ist
 # Feb. 23
+## 1
+### a)
+Beschränkung auf (gerade) Verbindungen zwischen Kreuzungen (kein Verlauf, kein Material, kein Zustand)
+### b)
+Abstraktion von Kreuzung als Knoten und Straßen als Pfade.
+## 2
+$G=(V,E)$, $V=\{ a,b,c,d,e \}$
+### a)
+```
+   a b c d e
+a  0 1 1 0 0
+b  0 0 1 0 0
+c  0 0 0 1 1
+d  0 1 0 0 0
+e  0 0 1 0 0
+```
+
+### b)
+```tikz
+\begin{document}
+\begin{tikzpicture}[node distance={15mm}, main/.style = {draw, circle}] 
+\node[main] (a) {$a$}; 
+\node[main] (b) [right of=a] {$b$};
+\node[main] (c) [below of=b] {$c$};
+\node[main] (d) [left of=c] {$d$};
+\node[main] (e) [right of=c] {$e$};
+
+\draw [->] (a) -- (b);
+\draw [->] (a) -- (c);
+\draw [->] (b) -- (c);
+\draw [->] (c) -- (d);
+\draw [->] (c) -- (e);
+\draw [->] (d) -- (b);
+\draw [->] (e) -- (c);
+
+\end{tikzpicture}
+\end{document}
+```
+### c)
+$K_{1}=\{ (b,c),(c,d),(d,b) \}$
+$K_{2}=\{ (c,e),(e,c) \}$
+
+### d)
+$Z_{1}=\{ (b,c),(c,e),(e,c),(c,d),(d,b) \}$
+
+### e)
+$a,b,c,d,e$
+
+### f)
+$a,b,c,d,e$
+
+## 3
+$d(u,v)=min(l\mid \text{es gibt ein Pfad g der Länge l})$
+## 2
+### 1
+```pseudo
+\begin{algorithm}
+\caption{Anzahl der Kanten}
+\begin{algorithmic}
+\Input Adjazenzmatrix $L$ eines Gerichteten Graphen
+\Output Anzahl der Kanten $L$
+  \Function{ZähleKanten}{$L$}
+    \State $z \gets 0$
+    \ForAll{$i$ \textbf{in} $L$}
+      \If{$i$ \textbf{is equal to} $1$}
+        \State $z \gets z + 1$
+      \EndIf
+    \EndFor
+    \State \textbf{return} $z$
+  \EndFunction
+\end{algorithmic}
+\end{algorithm}
+```
+### 2
+```pseudo
+\begin{algorithm}
+\caption{Check for Duplicate Elements}
+\begin{algorithmic}
+\Input A list $L$ of positive integers
+\Output $1$ if there are no duplicates, $0$ if duplicates are found
+  \Function{CheckForDuplicates}{$L$}
+    \For{$i \gets 0$ \textbf{to} \textbf{length of} $L - 1$}
+      \For{$j \gets 0$ \textbf{to} \textbf{length of} $L - 1$}
+        \If{$i \neq j$ \textbf{and} $L[i] == L[j]$}
+          \State \textbf{return} $0$
+        \EndIf
+      \EndFor
+    \EndFor
+    \State \textbf{return} $1$
+  \EndFunction
+\end{algorithmic}
+\end{algorithm}
+```
+## 3
+### 1
+```python
+n = int(input("Geben sie eine ganze positive Zahl an: ")) # 3
+x = 0 # 1
+z = 0 # 1
+
+while (x < n): # n
+	y = n # 1
+	while y > 0: # n
+		z += 1   # 2
+		y = y - 1 # 2
+	x += 1 # 2
+```
+$(4n^2+3n+5)\in O(n^2)$
+
+### 2
+Obere Schranke:
+$2n^4+9n^2$....
+
+## 4
+```python
+def f(x): 
+	y = x + 1 
+	y = g(y) 
+	return y 
+	
+def g(x):
+	y = 3 ** x 
+	return y // 4 
+	
+y = 2 
+x = f(y) 
+print(x)
+```
+
+### 3
+![[Feb23_StackFrame.png]]
+
+## 5
+### 1+3
+```python
+class Hund: 
+	def __init__(self, hungrig): 
+		self.hungrig = hungrig 
+		
+	def fressen(self, menge): 
+		self.hungrig = self.hungrig - menge 
+		
+	def bellen(self):
+		for i in range(self.hungrig):
+			print("wuf")
+
+hund = Hund(10)
+hund.fressen(4) # oder hund.fressen(hund.hungrig - 6) 
+hund.bellen()
+```
+
+## 6
+### 2
+```python
+def func(n): 
+	x = 1 
+	for i in range(n): 
+		x = 3 * x
+	return(x)
+
+def funcRec(x):
+	if x == 0:
+		return 1
+	return funcRec(x-1)*3
+
+n = 10
+print(func(n))
+print(funcRec(n))
+```
+
+## 8
+### 4
+Unabhängig von externen Eingabewerten deshalb lösbar.
