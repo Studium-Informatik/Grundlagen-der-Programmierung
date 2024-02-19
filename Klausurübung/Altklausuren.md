@@ -292,11 +292,12 @@ Ausgabe:
 Eine Menge $M$ ist **abzählbar unendlich**, wenn sie gleichmächtig zur Menge $\mathbb{N}$ der natürlichen Zahlen ist
 # Feb. 23
 ## 1
+### 1
 ### a)
 Beschränkung auf (gerade) Verbindungen zwischen Kreuzungen (kein Verlauf, kein Material, kein Zustand)
 ### b)
 Abstraktion von Kreuzung als Knoten und Straßen als Pfade.
-## 2
+### 2
 $G=(V,E)$, $V=\{ a,b,c,d,e \}$
 ### a)
 ```
@@ -342,7 +343,7 @@ $a,b,c,d,e$
 ### f)
 $a,b,c,d,e$
 
-## 3
+### 3
 $d(u,v)=min(l\mid \text{es gibt ein Pfad g der Länge l})$
 ## 2
 ### 1
@@ -354,10 +355,12 @@ $d(u,v)=min(l\mid \text{es gibt ein Pfad g der Länge l})$
 \Output Anzahl der Kanten $L$
   \Function{ZähleKanten}{$L$}
     \State $z \gets 0$
-    \ForAll{$i$ \textbf{in} $L$}
-      \If{$i$ \textbf{is equal to} $1$}
-        \State $z \gets z + 1$
-      \EndIf
+    \ForAll{$j$ \textbf{in} $L$}
+      \ForAll{$i$ \textbf{in} $j$}
+	      \If{$i$ \textbf{is equal to} $1$}
+	        \State $z \gets z + 1$
+	      \EndIf
+		\EndFor
     \EndFor
     \State \textbf{return} $z$
   \EndFunction
@@ -400,6 +403,7 @@ while (x < n): # n
 ```
 $(4n^2+3n+5)\in O(n^2)$
 
+$3+1+1+n(1+2+n(2+2))=5+n(3+4n)=5+3n+4n^2$
 ### 2
 Obere Schranke:
 $2n^4+9n^2$....
