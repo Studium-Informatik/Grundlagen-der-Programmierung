@@ -293,13 +293,13 @@ Eine Menge $M$ ist **abzählbar unendlich**, wenn sie gleichmächtig zur Menge $
 # Feb. 23
 ## 1
 ### 1
-### a)
+#### a)
 Beschränkung auf (gerade) Verbindungen zwischen Kreuzungen (kein Verlauf, kein Material, kein Zustand)
-### b)
+#### b)
 Abstraktion von Kreuzung als Knoten und Straßen als Pfade.
 ### 2
 $G=(V,E)$, $V=\{ a,b,c,d,e \}$
-### a)
+#### a)
 ```
    a b c d e
 a  0 1 1 0 0
@@ -309,7 +309,7 @@ d  0 1 0 0 0
 e  0 0 1 0 0
 ```
 
-### b)
+#### b)
 ```tikz
 \begin{document}
 \begin{tikzpicture}[node distance={15mm}, main/.style = {draw, circle}] 
@@ -330,17 +330,17 @@ e  0 0 1 0 0
 \end{tikzpicture}
 \end{document}
 ```
-### c)
+#### c)
 $K_{1}=\{ (b,c),(c,d),(d,b) \}$
 $K_{2}=\{ (c,e),(e,c) \}$
 
-### d)
+#### d)
 $Z_{1}=\{ (b,c),(c,e),(e,c),(c,d),(d,b) \}$
 
-### e)
+#### e)
 $a,b,c,d,e$
 
-### f)
+#### f)
 $a,b,c,d,e$
 
 ### 3
@@ -447,6 +447,13 @@ hund.bellen()
 ```
 
 ## 6
+### 1
+```python
+x = abs(x) 
+for i in range(1, x): # keine Schleifen in funktional
+	x = x + 4 
+print(bin(x))
+```
 ### 2
 ```python
 def func(n): 
@@ -465,6 +472,286 @@ print(func(n))
 print(funcRec(n))
 ```
 
+### 3
+```run-python
+L = [2,4,1,6,7]
+
+# a)
+L1 = list(map(lambda x: x+1, L))
+
+# b)
+L2 = list(filter(lambda x: x%2==0, L))
+L3 = list(filter(lambda x: (x>=2 and x<=6), L))
+L4 = list(filter(lambda x: x in [2,4,6], L))
+
+print("a", L1)
+print("b", L2)
+print("b2", L3)
+print("b3", L4)
+```
+### 4
+```run-python
+# (2, (1, ()))
+
+def occurs(xs, x):
+	if xs == ():
+		return False
+	elif xs[0] == x:
+		return True
+	return occurs(xs[1], x)
+
+print(occurs((2, (1, ())), 5))
+print(occurs((2, (1, ())), 1))
+```
+## 7
+### 1
+Werkzeuge um Quellcode in für Computer ausführbaren Code zu "übersetzten"
+### 2
+Zeile für Zeile Interpretation beim Interpreter, gesamter Code kompiliert/übersetzt beim Compiler.
+### 3
+Übersetzt Assembler code in Maschinen Code (für Computer lesbar/verständlich)
+### 4
+| Zeile | r1 | r2 | r3 | x | y | z |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 0 | - | - | - | 1 | 1 | 1 |
+| 1 | 8 | - | - | 1 | 1 | 1 |
+| 2 | 8 | 1 | - | 1 | 1 | 1 |
+| 3 | 8 | 1 | 1 | 1 | 1 | 1 |
+| 4 | 8 | 2 | 1 | 1 | 1 | 1 |
+| 5 |  |  |  | 1 | 1 | 1 |
+| 8 | 8 | 2 | 1 | 1 | 1 | 1 |
+| 9 | 3 | 2 | 1 | 1 | 1 | 1 |
+| 10 | 3 | 2 | 1 | 1 | 1 | 3 |
+| 11 | 3 | 2 | 1 | 1 | 1 | 2 |
+x=1, y=1, z=2
 ## 8
 ### 4
 Unabhängig von externen Eingabewerten deshalb lösbar.
+# Feb. 21
+## Funktional
+### ii
+```run-python
+L = [8,80,800,8000,80000,800000] # map -> [8,8,8,8,8,8]
+
+f = lambda x: int(x/(10**L.index(x)))
+print(list(map(f, L)))
+
+f = lambda x: L[0]
+print(list(map(f, L)))
+```
+
+
+# Nachsch. 23
+## 1 Graphen
+### 1
+#### a)
+Verzicht auf exakte Daten (Temperatur), Einordnung in Kategorien
+#### b)
+Verzicht auf andere Wetterlagen (Wind, Luftfeuchtigkeit, Regen)
+
+### 2
+Ein Gerichteter Graph ist ein Paar $G(V,E)$, wobei $V$ ist eine endlich Menge an Knoten und $E$ eine Menge an geordneten Knotenpaaren.
+
+### 3
+#### 1
+```tikz
+\begin{document}
+\begin{tikzpicture}[node distance={15mm}, main/.style = {draw, circle}] 
+\node[main] (m) {$m$}; 
+\node[main] (n) [below right of=m] {$n$};
+\node[main] (o) [right of=n] {$o$};
+\node[main] (p) [below left of=n] {$p$};
+\node[main] (q) [below right of=n] {$q$};
+
+\draw [->] (m) -- (n);
+\draw [->] (m) -- (o);
+\draw [->] (o) -- (n);
+\draw [->] (n) -- (p);
+\draw [->] (n) -- (q);
+\draw [->] (q) -- (n);
+\draw [->] (p) -- (o);
+
+\end{tikzpicture}
+\end{document}
+```
+#### 2
+```
+  m n o p q
+m 0 1 1 0 0
+n 0 0 0 1 1
+o 0 1 0 0 0
+p 0 0 1 0 0
+q 0 1 0 0 0
+```
+
+#### 3
+$K_{1}=\{ (n,p),(p,o),(o,n) \}$
+$K_{2}=\{ (q,n),(n,q) \}$
+#### 4
+$Z=\{ (q,n), (n,p), (p,o), (o,n), (n,q) \}$
+#### 5
+$n\to p\to q\to o$
+$m\to n\to o\to p\to q$
+#### 6
+$m\to n\to p\to o\to q$
+## 2. Pseudocode
+
+## 3. Ressourcen
+### 2
+$2n^4+n^3-11\in\Theta(n^4)$
+
+für $O(n^4)$
+$\exists n_{0},c_{>0} \forall n: n\geq n_{0}: f(n)\leq c\cdot g(n)\in O(n^4)$
+
+$$\displaylines{
+2n^4+n^3-11&\leq& c\cdot n^4&\mid&\text{c=11}\\
+2n^4+n^3-11&\leq& 11\cdot n^4&\mid&\text{n=0}\\
+2\cdot 0^4+0^3-11&\leq& 11\cdot 0^4\\
+-11&\leq& 0\\
+}$$
+
+für $\Omega(n^4)$
+$\exists n_{0},c_{>0} \forall n: n\geq n_{0}: f(n)\geq c\cdot g(n)\in \Omega(n^4)$
+$$\displaylines{
+2\cdot n^4+n^3-11&\geq& c\cdot n^4&\mid&c=1\\
+2\cdot n^4+n^3-11&\geq& 1\cdot n^4&\mid&n=2\\
+2\cdot 2^4+2^3-11&\geq& 1\cdot 2^4\\
+37&\geq& 32
+}$$
+
+### 3
+#### b)
+$t_{Q}$
+
+## 4 Imperative
+```python
+def f(x):
+	y=x-2
+	return g(y)
+
+def g(x):
+	y=3*x
+	return y//5
+
+y=5
+x=f(y)
+print(x)
+```
+### 1
+aktuell: 5
+formal: x
+### 2
+`1`
+### 3
+![[Feb23_Nach_StackFrame.png]]
+
+## 5 Objekt
+```run-python
+class Konto:
+	def __init__(self, kontostand):
+		self.kontostand = kontostand
+	
+	def abheben(self, betrag):
+		if self.kontostand >= betrag:
+			self.kontostand -= betrag
+
+	def __str__(self):
+		return "Kontostand: " + str(self.kontostand)
+
+meinKonto = Konto(10000)
+print(meinKonto)
+meinKonto.abheben(60000)
+print(meinKonto)
+meinKonto.abheben(6000)
+print(meinKonto)
+```
+
+### 2
+Datenelement: kontostand
+
+## 6. Funktional
+```python
+def g(x): # 1. Ordnung
+	return x + 1
+print(g(5))
+
+def h(f, x, y, z, a): # 2. Ordnung, wenn f 1. Ordnung ist
+	return f(x)
+	
+print(h(g, 5))
+```
+
+### 2
+```python
+def func(n):
+	x = 1
+	for i in range(1, n+1):
+		x = 3*x
+	return x
+
+def rec_func(n):
+	if n == 0:
+		return 1
+	return rec_func(n-1) * 3
+
+print(func(5))
+print(rec_func(5))
+```
+
+### 3
+```run-python
+L=[5,7,8,2,0]
+
+# a)
+f=lambda x: x-2
+print(list(map(f, L)))
+
+# b)
+f=lambda x: x%2 != 0
+print(list(filter(f, L)))
+```
+
+### 4
+```run-python
+# (((), 1), 2)
+
+def occurs(xs, x):
+	if xs == ():
+		return False
+	elif xs[1] == x:
+		return True
+	return occurs(xs[0], x)
+
+print(occurs(((((), 4), 2), 5), 5))
+print(occurs(((((), 4), 2), 5), 7))
+```
+
+## 7 Comiler
+### 3
+```css
+1. LOAD r1 [4]   ; Lade x in r1
+2. LOAD r2 [8]   ; Lade y in r2
+3. GOGR r1 r2 7  ; Gehe zu 7 wenn r1 > r2
+4. ADD r2 r2 1   ; r2 = r2 + 1
+5. STORE r2 [8]  ; Speicher r2 in y
+6. GOTO 9        ;
+7. MUL r1 r1 3   ; r1 = r1 * 3
+8. STORE r1 [4]  ; Speicher r1 in x
+9. STOP          ;
+```
+
+## 8 Unentscheidbarkeit
+### 1
+Ausgabe immer `0` oder `1` (Ja oder nein, wahr oder falsch)
+### 2
+Eingabe: Funktion und Programm
+Ausgabe: 1 falls das Programm die Funktion berechnet, 0 falls nicht
+### 3
+Eingabe: $n\in \mathbb{N}$
+Ausgabe: 1 wenn $n$ eine Primzahl, sonst 0
+### 4
+Unabhängig von externen Eingabewerten, deshalb lösbar.
+
+
+
+Eine Menge $M$ ist abzählbar unendlich wenn eine bijektive Funktion von $\mathbb{N}\to M$ gibt
