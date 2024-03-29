@@ -8,7 +8,7 @@ tags:
 ## 1.
 ### a)
 
-```python
+```run-python
 def inc(x):
 	x = x + 1
 
@@ -21,7 +21,7 @@ es wird `10` ausgegeben, da die Funktion die Variable aus ihrem Stackframe nicht
 
 ### b)
 
-```python
+```run-python
 def inc(x):
 	x = x + 1
 	return x
@@ -34,7 +34,7 @@ print(a)
 ## 2.
 
 ## 3.
-```python
+```run-python
 def decToBin (n):
 	binRep = "" 
 	while n > 0:
@@ -45,7 +45,7 @@ def decToBin (n):
 Die Funktion wird solange ausgeführt wie n größer als 0 ist. Bei jeder Iteration wird der Rest der Division von `n` durch 2 wird dann vor den bisherigen Wert von `binRep` als String gesetzt. Danach wird n auf die Ganzzahlige Division mit 2 gesetzt.
 
 ## 4.
-```python
+```run-python
 def binToDec(n):
     decimal = 0
     binary_str = str(n)

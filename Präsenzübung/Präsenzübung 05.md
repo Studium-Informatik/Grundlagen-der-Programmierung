@@ -70,7 +70,7 @@ $O(n^2)$
 Die Funktion findet das kleinste Element einer Liste
 eine Bessere Darstellung der Funktion wäre:
 
-```python
+```run-python
 def findMin(xs):
 	if(len(xs) == 0):
 		return None

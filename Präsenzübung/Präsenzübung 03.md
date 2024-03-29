@@ -8,7 +8,7 @@ tags:
 ## 1.
 ### 1.
 #### a)
-```python
+```run-python
 #Input: `graph` (Adjazenzliste repräsentiert als Dictionary), `node` (der vorgegebene Knoten)
 #Output: Die Anzahl der ausgehenden Kanten des vorgegebenen Knotens.
 
@@ -41,7 +41,7 @@ def outgoing_degree_adjacency_list(graph, node):
 ```
 
 #### b)
-```python
+```run-python
 #Input: `matrix` (Adjazenzmatrix repräsentiert als Liste von Listen), `node` (der vorgegebene Knoten)
 #Output: Die Anzahl der ausgehenden Kanten des vorgegebenen Knotens.
 
@@ -73,7 +73,7 @@ def outgoing_degree_adjacency_matrix(matrix, node):
 ```
 
 #### c)
-```python
+```run-python
 #Input: `graph` (Adjazenzliste repräsentiert als Dictionary)
 #Output: Ein Dictionary, das jedem Knoten seinen Eingangsgrad zuordnet.
 
@@ -142,7 +142,7 @@ Der Komplementärgraph eines ungerichteten Graphen ist ein neuer Graph, bei dem 
 ```
 
 #### b)
-```python
+```run-python
 # Input: original_matrix (Adjazenzmatrix)
 # Output: complement_matrix (Adjazenzmatrix des Komplementärgraphen)
 def complement_adjacency_matrix(original_matrix):

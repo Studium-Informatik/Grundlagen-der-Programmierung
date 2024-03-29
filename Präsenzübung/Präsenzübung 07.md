@@ -1,6 +1,6 @@
 ## 1
 ### 1.1
-```python
+```run-python
 def rec(x, n):  
     if n <= 1:  
         return x  
