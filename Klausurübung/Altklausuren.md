@@ -755,3 +755,53 @@ Unabhängig von externen Eingabewerten, deshalb lösbar.
 
 
 Eine Menge $M$ ist abzählbar unendlich wenn eine bijektive Funktion von $\mathbb{N}\to M$ gibt
+
+
+# Other
+$f:\mathbb{Z}\times \mathbb{Z}\to$ mit $f(x,y)=x^y$
+
+Somit ist
+$g:\mathbb{Z}\to(\mathbb{Z}\to \mathbb{Z})$
+$g(x)=h_{x}$
+
+mit
+$h_{x}:\mathbb{Z}\to \mathbb{Z}$
+$h_{x}(y)=x^y$
+
+```run-python
+def f(x,y):
+	return x ** y # gibt x^y zurück
+
+def g(x): # gibt die Funktion h_x zurück
+	def h_x(y):
+		return x ** y # gibt x^y zurück
+	return h_x
+
+print("Normal:", f(5,7))
+print("Currying:", g(5)(7))
+```
+## 3 Eingaben
+
+$f:\mathbb{Z}\to(\mathbb{Z}\to(\mathbb{Z}\to \mathbb{Z}))$
+$g:\mathbb{Z}\to(\mathbb{Z}\to \mathbb{Z})$
+$h:\mathbb{Z}\to \mathbb{Z}$
+
+theoretisch (falsche Notation):
+$f:\mathbb{Z}\to g$
+$g:\mathbb{Z}\to h$
+
+```run-python
+def funktion(x, y, z):
+	return x + y * z
+
+def f(x):
+    def g(y):
+        def h(z):
+            return x + y * z
+        return h
+    return g
+
+
+print("Normal:", funktion(2,3,4))
+print("Currying:", f(2)(3)(4))
+```
